@@ -1,0 +1,21 @@
+<div>
+    <button (click)="navigateToAllProducts()">List of All Products</button>
+    <button (click)="fetchProductById(1)">Single Product</button>
+
+    <div *ngIf="productById">
+        <h3>{{ productById.title }}</h3>
+        <p>{{ productById.description }}</p>
+        <p>Price: ${{ productById.price }}</p>
+        <p>Discount: {{ productById.discountPercentage }}%</p>
+        <p>Rating: {{ productById.rating }}</p>
+        <p>Stock: {{ productById.stock }}</p>
+        <p>Brand: {{ productById.brand }}</p>
+        <p>Category: {{ productById.category }}</p>
+
+        <div class="image-container">
+            <div *ngFor="let image of productById.images">
+                <img [src]="image" alt="{{ productById.title }}" />
+            </div>
+        </div>
+    </div>
+</div>

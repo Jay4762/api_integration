@@ -1,0 +1,21 @@
+<div>
+    <button (click)="showAllProducts()">List of All Products</button>
+    <button (click)="showProductById(1)">Single Product</button>
+
+    <div *ngFor="let product of products">
+        <h3>{{ product.title }}</h3>
+        <p><b>{{ product.description }}</b></p>
+        <p>Price: ${{ product.price }}</p>
+        <p>Discount: {{ product.discountPercentage }}%</p>
+        <p>Rating: {{ product.rating }}</p>
+        <p>Stock: {{ product.stock }}</p>
+        <p>Brand: {{ product.brand }}</p>
+        <p>Category: {{ product.category }}</p>
+
+        <div class="image-container">
+            <div *ngFor="let image of product.images">
+                <img [src]="image" alt="{{ product.title }}" />
+            </div>
+        </div>
+    </div>
+</div>
